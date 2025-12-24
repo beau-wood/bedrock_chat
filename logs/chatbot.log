@@ -1,0 +1,45 @@
+2025-12-24 07:04:48,212 - botocore.credentials - INFO - Found credentials in shared credentials file: ~/.aws/credentials
+2025-12-24 07:04:48,260 - __main__ - INFO - Initialized Bedrock client in region: us-east-1
+2025-12-24 07:05:10,350 - __main__ - ERROR - Unexpected error: An error occurred (ResourceNotFoundException) when calling the InvokeModel operation: Model use case details have not been submitted for this account. Fill out the Anthropic use case details form before using the model. If you have already filled out the form, try again in 15 minutes.
+Traceback (most recent call last):
+  File "/Users/bwood/dev/Code/bedrock-chatbot/src/chatbot.py", line 98, in send_message
+    response = self.bedrock.invoke_model(
+        modelId=self.model_id,
+        body=json.dumps(request_body)
+    )
+  File "/Users/bwood/dev/envs/bedrock-chatbot/lib/python3.13/site-packages/botocore/client.py", line 602, in _api_call
+    return self._make_api_call(operation_name, kwargs)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/bwood/dev/envs/bedrock-chatbot/lib/python3.13/site-packages/botocore/context.py", line 123, in wrapper
+    return func(*args, **kwargs)
+  File "/Users/bwood/dev/envs/bedrock-chatbot/lib/python3.13/site-packages/botocore/client.py", line 1078, in _make_api_call
+    raise error_class(parsed_response, operation_name)
+botocore.errorfactory.ResourceNotFoundException: An error occurred (ResourceNotFoundException) when calling the InvokeModel operation: Model use case details have not been submitted for this account. Fill out the Anthropic use case details form before using the model. If you have already filled out the form, try again in 15 minutes.
+2025-12-24 07:05:32,656 - __main__ - ERROR - Unexpected error: An error occurred (ResourceNotFoundException) when calling the InvokeModel operation: Model use case details have not been submitted for this account. Fill out the Anthropic use case details form before using the model. If you have already filled out the form, try again in 15 minutes.
+Traceback (most recent call last):
+  File "/Users/bwood/dev/Code/bedrock-chatbot/src/chatbot.py", line 98, in send_message
+    response = self.bedrock.invoke_model(
+        modelId=self.model_id,
+        body=json.dumps(request_body)
+    )
+  File "/Users/bwood/dev/envs/bedrock-chatbot/lib/python3.13/site-packages/botocore/client.py", line 602, in _api_call
+    return self._make_api_call(operation_name, kwargs)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/bwood/dev/envs/bedrock-chatbot/lib/python3.13/site-packages/botocore/context.py", line 123, in wrapper
+    return func(*args, **kwargs)
+  File "/Users/bwood/dev/envs/bedrock-chatbot/lib/python3.13/site-packages/botocore/client.py", line 1078, in _make_api_call
+    raise error_class(parsed_response, operation_name)
+botocore.errorfactory.ResourceNotFoundException: An error occurred (ResourceNotFoundException) when calling the InvokeModel operation: Model use case details have not been submitted for this account. Fill out the Anthropic use case details form before using the model. If you have already filled out the form, try again in 15 minutes.
+2025-12-24 07:12:04,599 - botocore.credentials - INFO - Found credentials in shared credentials file: ~/.aws/credentials
+2025-12-24 07:12:04,645 - __main__ - INFO - Initialized Bedrock client in region: us-east-1
+2025-12-24 07:12:11,863 - __main__ - ERROR - Validation error: An error occurred (ValidationException) when calling the InvokeModel operation: Invocation of model ID anthropic.claude-sonnet-4-20250514-v1:0 with on-demand throughput isn’t supported. Retry your request with the ID or ARN of an inference profile that contains this model.
+2025-12-24 07:16:17,894 - botocore.credentials - INFO - Found credentials in shared credentials file: ~/.aws/credentials
+2025-12-24 07:16:17,940 - __main__ - INFO - Initialized Bedrock client in region: us-east-1
+2025-12-24 07:16:24,783 - __main__ - INFO - Successfully received response from Claude
+2025-12-24 07:16:57,785 - __main__ - INFO - Successfully received response from Claude
+2025-12-24 07:24:50,541 - botocore.credentials - INFO - Found credentials in shared credentials file: ~/.aws/credentials
+2025-12-24 07:24:50,588 - __main__ - INFO - Initialized Bedrock client in region: us-east-1
+2025-12-24 07:24:58,079 - __main__ - INFO - Request body: {"anthropic_version": "bedrock-2023-05-31", "max_tokens": 4096, "messages": [{"role": "user", "content": "What is the capital of Mass?"}]}
+2025-12-24 07:24:58,961 - __main__ - INFO - Successfully received response from Claude
+2025-12-24 07:25:19,394 - __main__ - INFO - Request body: {"anthropic_version": "bedrock-2023-05-31", "max_tokens": 4096, "messages": [{"role": "user", "content": "What is the capital of Mass?"}, {"role": "assistant", "content": "The capital of Massachusetts (Mass.) is Boston."}, {"role": "user", "content": "What is the most expensive restaraunt there?"}]}
+2025-12-24 07:25:22,933 - __main__ - INFO - Successfully received response from Claude
