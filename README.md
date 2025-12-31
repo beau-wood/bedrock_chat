@@ -1,6 +1,6 @@
-# AWS Bedrock Claude Chatbot
+# AWS Bedrock Claude Chatbot + MCP
 
-A production-ready Python chatbot using AWS Bedrock and Claude.
+Learning to integrate AWS Bedrock + FastAPI + FastMCP 
 
 ## Setup
 
@@ -67,4 +67,21 @@ This structure is ready for deployment to:
 ## Notes
 - When running locally, aws creds come from ~/.aws/credentials
 - When deploying to cloud, assign an IAM role to the instance so that creds are automatically created/rotated (boto understands automatically)
-- 
+
+
+## MCP Testing Notes
+1) run the FastAPI server: `python mcp_server/server.py`
+2) Test the FastMCP:
+```commandline
+# List tools
+curl http://localhost:8000/tools
+
+# Get time
+curl -X POST http://localhost:8000/call -H "Content-Type: application/json" -d '{"tool": "get_current_time"}'
+
+# Calculate
+curl -X POST http://localhost:8000/call -H "Content-Type: application/json" -d '{"tool": "calculate", "params": {"expression": "2+2"}}'
+
+# List files
+curl -X POST http://localhost:8000/call -H "Content-Typ
+```

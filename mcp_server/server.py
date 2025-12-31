@@ -1,4 +1,3 @@
-"""Simple FastAPI server."""
 from fastapi import FastAPI
 from pydantic import BaseModel
 import uvicorn
@@ -20,9 +19,22 @@ def root():
 
 @app.get("/tools")
 def list_tools():
-    return {
+    """
+    TODO - this should be returning something like this instead I believe... otherwise the chatbot/llm doesnt know the params or doc for the tools:
+
+    [
+      {
+        "name": "get_current_time",
+        "description": "Get the current date and time",
+        "input_schema": {...}
+      },
+      ...
+    ]
+
+    """
+    return [{
         "tools": ["get_current_time", "calculate", "list_files"]
-    }
+    }]
 
 
 @app.post("/call")
