@@ -1,6 +1,6 @@
 # AWS Bedrock Claude Chatbot + MCP
 
-Learning to integrate AWS Bedrock + FastAPI + FastMCP 
+Learning to integrate AWS Bedrock + FastAPI + FastMCP
 
 ## Setup
 
@@ -29,6 +29,18 @@ Learning to integrate AWS Bedrock + FastAPI + FastMCP
 ## Usage
 
 ```bash
+# run API server for MCP tools
+python mcp_server/server.py
+# test mcp - curl http://localhost:8000/tools
+
+# Run the chatbot w/ mcp tools
+python src/chatbot_with_tools.py
+# Sample tool use:
+# What files are in this directory?
+# What time is it?
+
+# OR
+# Run the chatbot w/o tools
 python src/chatbot.py
 ```
 
@@ -36,26 +48,24 @@ python src/chatbot.py
 
 ```
 bedrock-chatbot/
-├── venv/                 # Virtual environment
-├── src/
-│   └── chatbot.py       # Main chatbot code
 ├── config/
-│   └── settings.py      # Configuration management
-├── .env                 # Environment variables (not in git)
-├── .env.example         # Example environment variables
-├── .gitignore          # Git ignore rules
-├── requirements.txt    # Python dependencies
-└── README.md           # This file
+│   ├── __init__.py
+│   └── settings.py           # Configuration management
+├── logs/                     # Log files directory
+├── mcp_server/
+│   ├── __init__.py
+│   ├── server.py             # FastAPI MCP server
+│   └── tools.py              # MCP tool definitions
+├── src/
+│   ├── __init__.py
+│   ├── chatbot.py            # Sample chatbot code w/o mcp tools
+│   └── chatbot_with_tools.py # Chatbot with MCP tools integration
+├── .env                      # Environment variables (not in git)
+├── .env.example              # Example environment variables
+├── .gitignore                # Git ignore rules
+├── requirements.txt          # Python dependencies
+└── README.md                 # This file
 ```
-
-## Deployment
-
-This structure is ready for deployment to:
-- AWS Lambda
-- AWS ECS/Fargate
-- AWS EC2
-- Docker containers
-- Any cloud platform
 
 ## Environment Variables
 
